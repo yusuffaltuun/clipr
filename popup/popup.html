@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <img class="header-logo" src="../icons/icon32.png" width="20" height="20" alt="Clipr">
+        <h1 class="header-title">Clipr</h1>
+      </div>
+      <div class="header-right">
+        <span id="platformBadge" class="platform-badge hidden"></span>
+      </div>
+    </header>
+
+    <!-- Form Container -->
+    <div id="form-container">
+      <!-- Video Info Card -->
+      <div id="videoInfo" class="card video-info hidden">
+        <div class="video-title-row">
+          <svg class="video-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+          <span id="videoTitle" class="video-title">-</span>
+        </div>
+        <div class="video-stats">
+          <div class="stat">
+            <span class="stat-label">Duration</span>
+            <span id="videoDuration" class="stat-value">-</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-label">Current</span>
+            <span id="videoCurrentTime" class="stat-value highlight">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div id="controls" class="controls hidden">
+
+        <!-- Time Inputs -->
+        <div class="time-row">
+          <div class="time-group">
+            <label class="time-label" for="startTime">START TIME</label>
+            <input type="text" id="startTime" class="time-input" value="0:00" placeholder="0:00" autocomplete="off" spellcheck="false">
+          </div>
+          <button id="setStartBtn" class="btn-target" title="Set to current time">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="time-row">
+          <div class="time-group">
+            <label class="time-label" for="endTime">END TIME</label>
+            <input type="text" id="endTime" class="time-input" value="0:00" placeholder="0:00" autocomplete="off" spellcheck="false">
+          </div>
+          <button id="setEndBtn" class="btn-target" title="Set to current time">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Clip Duration -->
+        <div id="clipDuration" class="clip-duration">Selected range: 0:00</div>
+
+        <!-- Range Bar -->
+        <div class="range-timeline">
+          <span id="timelineStart" class="range-label">0:00</span>
+          <div class="range-bar">
+            <div id="rangeFill" class="range-fill"></div>
+          </div>
+          <span id="timelineEnd" class="range-label">0:00</span>
+        </div>
+
+        <!-- Quick Clips -->
+        <div class="quick-clips">
+          <button class="chip" data-seconds="5">Last 5s</button>
+          <button class="chip" data-seconds="15">Last 15s</button>
+          <button class="chip" data-seconds="30">Last 30s</button>
+          <button class="chip" data-seconds="60">Last 1m</button>
+        </div>
+
+        <!-- Action Button -->
+        <button id="recordBtn" class="btn-action">
+          <svg id="recordIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" fill="#e15b64" stroke="#e15b64"/>
+          </svg>
+          <span id="recordText">Clip &amp; Download</span>
+        </button>
+      </div>
+
+      <!-- Progress -->
+      <div id="progress" class="progress hidden">
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <span id="progressText" class="progress-text">0%</span>
+      </div>
+
+      <!-- Message -->
+      <div id="message" class="message hidden">
+        <span id="messageText"></span>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state hidden">
+      <svg class="empty-state-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="23 7 16 12 23 17 23 7"/>
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+      </svg>
+      <h2 class="empty-state-title">No video detected</h2>
+      <p class="empty-state-subtitle">Open a supported video to start clipping.</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
