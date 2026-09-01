@@ -18,27 +18,8 @@
   "permissions": [
     "scripting",
     "activeTab",
-    "tabs",
     "tabCapture",
     "offscreen"
-  ],
-  "host_permissions": [
-    "*://*.youtube.com/*",
-    "*://*.x.com/*",
-    "*://*.twitter.com/*",
-    "*://*.instagram.com/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*.youtube.com/*",
-        "*://*.x.com/*",
-        "*://*.twitter.com/*",
-        "*://*.instagram.com/*"
-      ],
-      "js": ["content/content.js"],
-      "run_at": "document_idle"
-    }
   ],
   "background": {
     "service_worker": "background/service-worker.js"
